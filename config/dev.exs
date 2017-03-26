@@ -35,9 +35,5 @@ config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
 config :twitter_client, TwitterClient.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "twitter_client_dev",
-  hostname: "localhost",
-  pool_size: 10
+  adapter: Sqlite.Ecto,
+  database: "dev.sqlite3"

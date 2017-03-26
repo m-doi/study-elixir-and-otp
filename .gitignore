@@ -22,3 +22,9 @@ erl_crash.dump
 # secrets file as long as you replace its contents by environment
 # variables.
 /config/prod.secret.exs
+
+# Twitterのシークレットキーなどが含まれるため、config.exsを除外
+/config/config.exs
+
+# sqliteのデータファイル
+*.sqlite3
