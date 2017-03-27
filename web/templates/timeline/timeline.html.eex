@@ -1,10 +1,9 @@
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-md-8">
     <%= for tweet <- @tweets do %>
-    <section>
-      <%= tweet.owner %>
+      <p>
       <%= tweet.text %>
-    </section>
+      </p>
     <% end %>
   </aside>
 </div>

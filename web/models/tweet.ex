@@ -1,4 +1,4 @@
 defmodule TwitterClient.Tweet do
 
-    defstruct owner: "", text: ""
+    defstruct text: ""
 end

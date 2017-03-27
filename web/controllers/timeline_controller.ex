@@ -3,14 +3,12 @@ defmodule TwitterClient.TimelineController do
 
   alias TwitterClient.Tweet
 
+  require Logger
+
   def index(conn, _params) do
-      # ここにtweetsを取得する関数を呼ぶ
-      # tweets = Repo.all(Tweets)
-      tweets = [
-          %Tweet{owner: "@doilux1",  text: "Hello!!"},
-          %Tweet{owner: "@doilux2", text: "Good Morining!!"},
-          %Tweet{owner: "@doilux3", text: "Good Night!!"}
-      ]
+      tweets = ExTwitter.home_timeline |>
+        Enum.map(fn(tweet) -> %Tweet{text: tweet.text} end)
+
       render conn, "timeline.html", tweets: tweets
   end
 end
