@@ -1,0 +1,10 @@
+<div class="row">
+  <aside class="col-md-4">
+    <%= for tweet <- @tweets do %>
+    <section>
+      <%= tweet.owner %>
+      <%= tweet.text %>
+    </section>
+    <% end %>
+  </aside>
+</div>
