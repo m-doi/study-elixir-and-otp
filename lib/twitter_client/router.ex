@@ -1,8 +1,8 @@
-defmodule TrotSample.Router do
+defmodule TwitterClient.Router do
   use Trot.Router
   use Trot.Template
 
-  alias Tweet
+  alias TwitterClient.Tweet
 
   get "/", do: 200
 

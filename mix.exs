@@ -1,8 +1,8 @@
-defmodule TrotSample.Mixfile do
+defmodule TwitterClient.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :trot_sample,
+    [app: :twitter_client,
      version: "0.1.0",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,

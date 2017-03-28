@@ -10,11 +10,11 @@ use Mix.Config
 
 # You can configure for your application as:
 #
-#     config :trot_sample, key: :value
+#     config :twitter_client, key: :value
 #
 # And access this configuration in your application as:
 #
-#     Application.get_env(:trot_sample, :key)
+#     Application.get_env(:twitter_client, :key)
 #
 # Or configure a 3rd-party app:
 #
@@ -30,7 +30,7 @@ use Mix.Config
 #     import_config "#{Mix.env}.exs"
 
 config :trot, :port, 4000
-config :trot, :router, TrotSample.Router
+config :trot, :router, TwitterClient.Router
 
 config :extwitter, :oauth, [
   consumer_key: "",
