@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>EEx Template</title>
+  </head>
+
+  <body>
+    <%= if @result do %>
+      <h1>Success!!</h1>
+    <% end %>
+
+    <form action="create" method="post">
+      <p>
+        <textarea name="text" rows="4" cols="40"></textarea>
+      </p>
+      <p>
+        <input type="submit" value="tweet">
+      </p>
+    </form>
+  </body>
+</html>
