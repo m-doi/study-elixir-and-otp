@@ -24,6 +24,9 @@ defmodule TwitterClient.Router do
 
     Logger.debug text
 
+    # Tweetを投稿
+    ExTwitter.update text
+
     render_template("new.html.eex", [result: true])
   end
 
