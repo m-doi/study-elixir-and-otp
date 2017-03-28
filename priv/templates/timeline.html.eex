@@ -1,9 +1,13 @@
-<div class="row">
-  <aside class="col-md-8">
+<html>
+  <head>
+    <title>EEx Template</title>
+  </head>
+
+  <body>
     <%= for tweet <- @tweets do %>
       <p>
       <%= tweet.text %>
       </p>
     <% end %>
-  </aside>
-</div>
+  </body>
+</html>

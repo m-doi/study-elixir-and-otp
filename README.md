@@ -1,20 +1,13 @@
-# TwitterClient
+# Twitter Client
 
-To start your Phoenix app:
+## Installation
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Install Node.js dependencies with `npm install`
-  * Start Phoenix endpoint with `mix phoenix.server`
-
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
-
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+1. config/config.exs.sampleをコピーしてconfig/config.exsを作成
+2. config/config.exsのTwitterクライアントの設定を追加する
+3. 以下順番に実行
+    ```
+    mix deps.get
+    mix deps.compile
+    iex -S mix
+    ```
+4. [http://localhost:4000/timeline](http://localhost:4000/timeline)にアクセスする
