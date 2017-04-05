@@ -6,7 +6,13 @@
   <body>
     <%= for todo <- @todos do %>
       <p>
-      <%= todo.text %>
+        <%= todo.text %>
+        <%= todo.status %>
+        <!-- "1"=todo.doneのときは以下表示しないようにしたい-->
+        <form action="todo/done" method="post">
+            <input type="hidden" name="key" value="<%= todo.key %>">
+            <input type="submit" value="Done">
+        </form>
       </p>
     <% end %>
   </body>

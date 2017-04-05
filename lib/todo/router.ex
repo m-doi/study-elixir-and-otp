@@ -10,7 +10,7 @@ defmodule TodoApp.Router do
   get "/", do: 200
 
   get "/todo" do
-    {:ok, res} = TodoRepo.get
+    {:ok, res} = TodoApp.Read.TodoRepo.get
     render_template("todolist.html.eex", [todos: res])
   end
 
@@ -22,8 +22,15 @@ defmodule TodoApp.Router do
     conn = parse(conn)
     key = conn.params["key"]
     text = conn.params["text"]
-    TodoRepo.add(key, text)
+    TodoApp.Write.TodoRepo.add(key, text)
     render_template("new.html.eex", [result: true])
+  end
+
+  post "/todo/done" do
+    conn = parse(conn)
+    key = conn.params["key"]
+    TodoApp.Write.TodoRepo.done(key)
+    render_template("done.html.eex", [result: true])
   end
 
   # 以下を参考にした

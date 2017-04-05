@@ -1,0 +1,12 @@
+<html>
+  <meta http-equiv="refresh" content="5;URL=/todo">
+  <head>
+    <title>Add Todo</title>
+  </head>
+
+  <body>
+    <%= if @result do %>
+      <h1>Success!!</h1>
+    <% end %>
+  </body>
+</html>
