@@ -4,9 +4,9 @@
   </head>
 
   <body>
-    <%= for tweet <- @tweets do %>
+    <%= for todo <- @todos do %>
       <p>
-      <%= tweet.text %>
+      <%= todo.text %>
       </p>
     <% end %>
   </body>

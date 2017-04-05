@@ -18,6 +18,3 @@ erl_crash.dump
 
 # Also ignore archive artifacts (built via "mix archive.build").
 *.ez
-
-# Twitterのシークレットキーなどが含まれるため、config.exsを除外
-/config/config.exs

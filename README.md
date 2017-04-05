@@ -1,13 +1,20 @@
-# Twitter Client
+# Todo App
+TODO管理のサンプルアプリケーション
 
 ## Installation
 
-1. config/config.exs.sampleをコピーしてconfig/config.exsを作成
-2. config/config.exsのTwitterクライアントの設定を追加する
+1. redisをインストール
+    ```
+    brew install redis
+    ```
+2. redisを起動
+    ```
+    redis-server /usr/local/etc/redis.conf
+    ```
 3. 以下順番に実行
     ```
     mix deps.get
     mix deps.compile
     iex -S mix
     ```
-4. [http://localhost:4000/timeline](http://localhost:4000/timeline)にアクセスする
+4. [http://localhost:4000/todo](http://localhost:4000/todo)にアクセスする

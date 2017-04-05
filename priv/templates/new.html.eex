@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>EEx Template</title>
+    <title>Add Todo</title>
   </head>
 
   <body>
@@ -10,10 +10,11 @@
 
     <form action="create" method="post">
       <p>
+        <input type="text" name="key" size="40" maxlength="20">
         <textarea name="text" rows="4" cols="40"></textarea>
       </p>
       <p>
-        <input type="submit" value="tweet">
+        <input type="submit" value="Add">
       </p>
     </form>
   </body>

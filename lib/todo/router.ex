@@ -1,32 +1,28 @@
-defmodule TwitterClient.Router do
+defmodule TodoApp.Router do
   use Trot.Router
   use Trot.Template
 
-  alias TwitterClient.Tweet
+  alias TodoApp.Todo
+  alias TodoApp.TodoRepo
 
   require Logger
 
   get "/", do: 200
 
-  get "/timeline" do
-    tweets = ExTwitter.home_timeline |>
-      Enum.map(fn(tweet) -> %Tweet{text: tweet.text} end)
-    render_template("timeline.html.eex", [tweets: tweets])
+  get "/todo" do
+    {:ok, res} = TodoRepo.get
+    render_template("todolist.html.eex", [todos: res])
   end
 
-  get "/tweet/new" do
+  get "/todo/new" do
     render_template("new.html.eex", [result: false])
   end
 
-  post "/tweet/create" do
+  post "/todo/create" do
     conn = parse(conn)
+    key = conn.params["key"]
     text = conn.params["text"]
-
-    Logger.debug text
-
-    # Tweetを投稿
-    ExTwitter.update text
-
+    TodoRepo.add(key, text)
     render_template("new.html.eex", [result: true])
   end
 

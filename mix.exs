@@ -1,8 +1,8 @@
-defmodule TwitterClient.Mixfile do
+defmodule TodoApp.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :twitter_client,
+    [app: :todo_app,
      version: "0.1.0",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
@@ -15,7 +15,7 @@ defmodule TwitterClient.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: [:logger, :extwitter]]
+    [extra_applications: [:logger, :exredis]]
   end
 
   # Dependencies can be Hex packages:
@@ -30,8 +30,7 @@ defmodule TwitterClient.Mixfile do
   defp deps do
     [
       {:trot, github: "hexedpackets/trot"},
-      {:poison, "~> 2.1", override: true},
-      {:extwitter, "~> 0.8.3"}
+      {:exredis, ">= 0.2.4"}
     ]
   end
 end

@@ -30,11 +30,14 @@ use Mix.Config
 #     import_config "#{Mix.env}.exs"
 
 config :trot, :port, 4000
-config :trot, :router, TwitterClient.Router
+config :trot, :router, TodoApp.Router
 
-config :extwitter, :oauth, [
-  consumer_key: "",
-  consumer_secret: "",
-  access_token: "",
-  access_token_secret: ""
-]
+
+# Redis Settings
+config :exredis,
+  host: "127.0.0.1",
+  port: 6379,
+  password: "",
+  db: 0,
+  reconnect: :no_reconnect,
+  max_queue: :infinity
