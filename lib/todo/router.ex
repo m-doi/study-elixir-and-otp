@@ -7,6 +7,8 @@ defmodule TodoApp.Router do
 
   require Logger
 
+  import Supervisor.Spec
+
   get "/", do: 200
 
   get "/todo" do
@@ -22,14 +24,18 @@ defmodule TodoApp.Router do
     conn = parse(conn)
     key = conn.params["key"]
     text = conn.params["text"]
-    TodoApp.Write.TodoRepo.add(key, text)
+
+    {:ok, sup} = Task.Supervisor.start_link(restart: :transient, max_restarts: 10)
+    Task.Supervisor.start_child(sup, fn -> TodoApp.Write.TodoRepo.add(key, text) end)
     render_template("new.html.eex", [result: true])
   end
 
   post "/todo/done" do
     conn = parse(conn)
     key = conn.params["key"]
-    TodoApp.Write.TodoRepo.done(key)
+
+    {:ok, sup} = Task.Supervisor.start_link(restart: :transient, max_restarts: 10)
+    Task.Supervisor.start_child(sup, fn -> TodoApp.Write.TodoRepo.done(key) end)
     render_template("done.html.eex", [result: true])
   end
 

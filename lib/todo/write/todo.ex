@@ -2,10 +2,16 @@ defmodule TodoApp.Write.TodoRepo do
 
   import Exredis.Api
 
+  require Logger
+
   # とりあえずuser_idは固定
 
   def add(key, text) do
     {:ok, client} = Exredis.start_link
+
+    Logger.info "Sleep Start"
+    :timer.sleep(5000)
+    Logger.info "Sleep End"
 
     # 投稿イベントの追加
     # キーは"todo:event:${user_id}:post:${key}"
@@ -24,6 +30,10 @@ defmodule TodoApp.Write.TodoRepo do
 
   def done(key) do
     {:ok, client} = Exredis.start_link
+
+    Logger.info "Sleep Start"
+    :timer.sleep(5000)
+    Logger.info "Sleep End"
 
     # 完了イベントの追加
     # キーは"todo:event:${user_id}:done:${key}"
